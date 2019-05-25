@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Django Girls blog</title>
@@ -9,16 +9,13 @@
         <h1><a href="">Django Girls Blog</a></h1>
     </div>
 
-    <div>
-        <p>published: 14.06.2014, 12:14</p>
-        <h2><a href="">My first post</a></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis dolores ex minima nihil, non optio ratione suscipit vel? Culpa cumque dicta dolor ipsam labore, perspiciatis praesentium repellendus sapiente ut veniam.</p>
-    </div>
-
-    <div>
-        <p>published: 14.06.2014, 12:14</p>
-        <h2><a href="">My second post</a></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis dolores ex minima nihil, non optio ratione suscipit vel? Culpa cumque dicta dolor ipsam labore, perspiciatis praesentium repellendus sapiente ut veniam.</p>
-    </div>
+    {% for post in posts %}
+        <div>
+            <p>published: {{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+            <hr>
+        </div>
+    {% endfor %}
 </body>
 </html>
